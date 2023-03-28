@@ -1,69 +1,50 @@
 package com.steps;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
-
+import com.Objects.Basepage;
+import com.Objects.MainAndAdvancedPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MainAndAdvancedGuide {
-	WebDriver driver;
+
+	Basepage bp;
+	MainAndAdvancedPage mp;
+
+	public MainAndAdvancedGuide() {
+		bp = new Basepage();
+		mp = new MainAndAdvancedPage();
+	}
+
 	@Given("User should launch the application")
 	public void user_should_launch_the_application() {
-		System.setProperty("webdriver.edge.driver", "driver\\msedgedriver.exe");
-		driver = new EdgeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get("https://legacy.reactjs.org/docs/getting-started.html");
-	
+		bp.launch();
 	}
 
 	@When("User should click on Docs Tab")
 	public void user_should_click_on_Docs_Tab() {
-		driver.findElement(By.xpath("//a[text()='Docs']")).click();
+		mp.clickDocLink();
 	}
 
 	@When("User should click on Main Concept Tab")
 	public void user_should_click_on_Main_Concept_Tab() {
-		boolean displayed = driver.findElement(By.xpath("//div[text()='Main Concepts']")).isDisplayed();
-		assertEquals(true, displayed);
+		mp.clickMainConceptLink();
 	}
 
 	@Then("User should verify the text and save main Concept file")
 	public void user_should_verify_the_text_and_save_main_Concept_file() throws IOException {
-		driver.findElement(By.xpath("//div[text()='Main Concepts']")).click();
-		List<WebElement> findElements = driver.findElements(By.xpath("(//ul[contains(@id,'section_')])[2]//li//a"));
-		FileWriter fout = new FileWriter("Files\\mainConcept.txt");
-		for (WebElement element : findElements) {
-			fout.write(element.getText());
-		}
-		fout.close();
+		mp.verifyTextAndSaveMainConept();
 	}
 
 	@When("User should click on Advanced Guide Tab")
 	public void user_should_click_on_Advanced_Guide_Tab() {
-		driver.findElement(By.xpath("//div[text()='Advanced Guides']")).click();
+		mp.clickAdvancedGuideLink();
 	}
 
 	@Then("User should verify the text and save advancedguide Concept file")
 	public void user_should_verify_the_text_and_save_advancedguide_Concept_file() throws IOException {
-		List<WebElement> findElements = driver.findElements(By.xpath("(//ul[contains(@id,'section_')])[3]//li//a"));
-		FileWriter fout = new FileWriter("Files\\advancedGuide.txt");
-		for (WebElement element : findElements) {
-			fout.write(element.getText());
-		}
-		fout.close();
+		mp.verifyTextAndSaveAdavancedConcept();
 	}
-
 
 }

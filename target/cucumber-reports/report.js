@@ -9,6 +9,9 @@ formatter.scenario({
   "description": "",
   "keyword": "Scenario"
 });
+formatter.before({
+  "status": "passed"
+});
 formatter.step({
   "name": "User launch the reactjs application",
   "keyword": "Given "
@@ -37,7 +40,9 @@ formatter.match({
   "location": "com.steps.ScrollPage.user_should_color_of_text_while_scroll_the_page()"
 });
 formatter.result({
-  "error_message": "java.lang.AssertionError: expected:\u003cfalse\u003e but was:\u003ctrue\u003e\r\n\tat org.junit.Assert.fail(Assert.java:89)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:835)\r\n\tat org.junit.Assert.assertEquals(Assert.java:120)\r\n\tat org.junit.Assert.assertEquals(Assert.java:146)\r\n\tat com.steps.ScrollPage.user_should_color_of_text_while_scroll_the_page(ScrollPage.java:43)\r\n\tat ✽.user should color of text while scroll the page(file:///D:/Java%20Testing/Aspire/src/test/resources/featureFiles/ScrollPage.feature:6)\r\n",
-  "status": "failed"
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
 });
 });

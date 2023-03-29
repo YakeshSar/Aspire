@@ -1,6 +1,9 @@
 package com.steps;
 
+import static org.junit.Assert.assertEquals;
 import java.io.IOException;
+import java.util.List;
+import org.openqa.selenium.WebElement;
 import com.Objects.Basepage;
 import com.Objects.MainAndAdvancedPage;
 import io.cucumber.java.en.Given;
@@ -35,6 +38,8 @@ public class MainAndAdvancedGuide {
 	@Then("User should verify the text and save main Concept file")
 	public void user_should_verify_the_text_and_save_main_Concept_file() throws IOException {
 		mp.verifyTextAndSaveMainConept();
+		List<WebElement> mainConceptCategory = mp.getMainConceptCategory();
+		assertEquals(12, mainConceptCategory.size());
 	}
 
 	@When("User should click on Advanced Guide Tab")
@@ -45,6 +50,8 @@ public class MainAndAdvancedGuide {
 	@Then("User should verify the text and save advancedguide Concept file")
 	public void user_should_verify_the_text_and_save_advancedguide_Concept_file() throws IOException {
 		mp.verifyTextAndSaveAdavancedConcept();
+		List<WebElement> advancedConceptCategory = mp.getAdvancedConceptCategory();
+		assertEquals(22, advancedConceptCategory.size());
 	}
 
 }

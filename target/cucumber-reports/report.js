@@ -1,45 +1,128 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/featureFiles/ScrollPage.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/featureFiles/ConceptTabs.feature");
 formatter.feature({
-  "name": "verify scroll function in the application",
+  "name": "User Should validate the ReactJs Applications",
   "description": "",
   "keyword": "Feature"
 });
-formatter.scenario({
-  "name": "Verify the scroll function in react js applcation",
+formatter.background({
+  "name": "User navigate to application",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Background"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "User launch the reactjs application",
+  "name": "User should launch the application",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "com.steps.ScrollPage.user_launch_the_reactjs_application()"
+  "location": "com.steps.MainAndAdvancedGuide.user_should_launch_the_application()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user click the tutorial tab",
+  "name": "User should click on Docs Tab",
   "keyword": "When "
 });
 formatter.match({
-  "location": "com.steps.ScrollPage.user_click_the_tutorial_tab()"
+  "location": "com.steps.MainAndAdvancedGuide.user_should_click_on_Docs_Tab()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "User should validate MainConceptTab",
+  "description": "",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "name": "User should click on Main Concept Tab",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.steps.MainAndAdvancedGuide.user_should_click_on_Main_Concept_Tab()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should color of text while scroll the page",
+  "name": "User should verify the text and save main Concept file",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.steps.ScrollPage.user_should_color_of_text_while_scroll_the_page()"
+  "location": "com.steps.MainAndAdvancedGuide.user_should_verify_the_text_and_save_main_Concept_file()"
 });
 formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.background({
+  "name": "User navigate to application",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User should launch the application",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.steps.MainAndAdvancedGuide.user_should_launch_the_application()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User should click on Docs Tab",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.steps.MainAndAdvancedGuide.user_should_click_on_Docs_Tab()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "User should validate AdvancedGuideTab",
+  "description": "",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "name": "User should click on Advanced Guide Tab",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.steps.MainAndAdvancedGuide.user_should_click_on_Advanced_Guide_Tab()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User should verify the text and save advancedguide Concept file",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.steps.MainAndAdvancedGuide.user_should_verify_the_text_and_save_advancedguide_Concept_file()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
   "status": "passed"
 });
 formatter.after({

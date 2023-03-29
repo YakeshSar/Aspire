@@ -12,13 +12,24 @@ public class Hooks extends Basepage{
 	@Before
 	public void before() {
 		Date date = new Date();
-		long time = date.getTime();
-		System.out.println(time);
+		System.out.println(date.toGMTString());
 	}
 	
+	@Before
+	public void start() {
+		System.out.println("start the execution");
+	}
 	
 	@After
 	public void after() {
+		Date date = new Date();
+		System.out.println(date.toGMTString());
 		driver.close();
+	}
+	
+
+	@After
+	public void end() {
+		System.out.println("End the execution");
 	}
 }
